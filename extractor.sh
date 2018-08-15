@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Get Boost sources first
-wget -qO- https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz | tar xvz
+wget -qO- https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.gz | tar xvz
 
 # To get the list of binary libraries do:
-cd boost_1_67_0/
+cd boost_1_68_0/
 ./bootstrap.sh --show-libraries | grep " - " | awk '{print $2}' | sort > binary_libraries
 
 # To get the list of libraries do:
@@ -15,8 +15,8 @@ cd -
 # Subtract binary libraries from all the libraries and edit result to get what you need
 grep -vxFf binary_libraries all_libraries > result
 
-# Get Boost binary package for bcp tool 
-apt install libboost1.58-tools-dev
+# [optionally]  Get Boost binary package for bcp tool 
+# apt install libboost1.58-tools-dev
 
 # Strip everything on the second level except the sources itself
 find . ! -name 'src' -type d | grep "/.*/" | xargs rm -rf

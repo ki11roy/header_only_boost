@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-rm -rf boost_1_67_0
+rm -rf boost_1_68_0
 
 # Get Boost sources first
-wget -qO- https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz | tar xvz
+wget -qO- https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.gz | tar xvz
 
 # To get the list of binary libraries do:
-cd boost_1_67_0/
+cd boost_1_68_0/
 ./bootstrap.sh --show-libraries | grep " - " | awk '{print $2}' | sort > binary_libraries
 
 # To get the list of libraries do:

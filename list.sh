@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 pwd=`pwd`
-boost=boost_1_67_0
+boost=boost_1_68_0
 bcp=./dist/bin/bcp
 path=$pwd/boost
 all_libraries="all_libraries.txt"
@@ -20,11 +20,12 @@ do
     $bcp $i $path
     echo $bcp $i $path
     echo $i >> $all_libraries
+    size=`du -hs $path | awk '{print $1}'`
     result=`find $path/libs -name 'src' -type d`
     if [ -n "$result" ]; then
-        echo -e $result >> $all_libraries
+        echo -e $size $result >> $all_libraries
     else
-        echo $i >> $header_only_libraries
+        echo $i $size >> $header_only_libraries
     fi
 done
 
