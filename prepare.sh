@@ -26,7 +26,7 @@ grep -vxFf binary_libraries all_libraries > result
 
 # Strip everything on the second level except the sources itself
 cd libs
-find . ! -name 'src' -type d | grep "/.*/" | xargs rm -rf
+find . ! -path '*/src*' -type d | grep "/.*/" | xargs rm -rf
 cd -
 
 cd ..
