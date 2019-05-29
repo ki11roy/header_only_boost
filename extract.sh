@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 pwd=`pwd`
-boost=boost_1_69_0
+boost=boost_1_70_0
 bcp=./dist/bin/bcp
 path=$pwd/boost
 
