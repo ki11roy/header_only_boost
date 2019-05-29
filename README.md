@@ -2,12 +2,12 @@ How To Build Header Only Boost
 =====
 
 Couple of scripts to build true header only Boost libraries.
-Tested with Ubuntu 16.04 and Boost 1.68.0.
+Tested with Ubuntu 16.04 and Boost 1.69.0.
 
 The main idea is to use Boost BCP tool on every library to find out if it produces 'src' folders in dependencies.
 We don't want extra dependencies so will remove everything except 'src' in 'libs' (examples, docs).
 
-## Prepare 
+## Prepare
 Download and unpack Boost and remove everything unneeded.
 
 ```
@@ -28,86 +28,86 @@ Produces *header_only_libraries.txt* and *all_libraries.txt* (with dependencies)
 
 ```
 accumulators 23M
-align 864K
-any 3.2M
-array 676K
-assert 608K
-assign 8.9M
+align 868K
+any 1.6M
+array 680K
+assert 612K
+assign 9.1M
 bind 920K
 callable_traits 368K
-circular_buffer 8.7M
+circular_buffer 2.7M
 compatibility 132K
-concept_check 3.1M
-config 708K
-container_hash 1.3M
+concept_check 2.2M
+config 716K
+container_hash 1.4M
 conversion 20K
-convert 35M
-core 732K
-crc 748K
+convert 36M
+core 736K
+crc 888K
 detail 11M
 disjoint_sets 44K
-dynamic_bitset 9.5M
+dynamic_bitset 9.6M
 endian 1.7M
-foreach 8.0M
-format 4.6M
-function 9.0M
+foreach 8.1M
+format 4.2M
+function 8.9M
 functional 16M
-function_types 9.9M
+function_types 10M
 fusion 32M
 hana 20M
-heap 9.8M
+heap 9.9M
 hof 504K
-icl 16M
-integer 744K
-interprocess 15M
-intrusive 3.2M
+integer 748K
+intrusive 3.3M
 io 636K
 iterator 16M
-lambda 7.5M
+lambda 7.6M
 lexical_cast 12M
-locale 9.8M
-local_function 9.6M
-logic 652K
+local_function 9.7M
+logic 664K
 metaparse 12M
 move 1.2M
-mp11 752K
+mp11 180K
 mpl 11M
 msm 30M
-multi_array 8.7M
+multi_array 8.8M
 multi_index 12M
-optional 4.6M
+optional 3.4M
+parameter_python 20K
 phoenix 41M
 poly_collection 17M
-polygon 7.2M
+polygon 2.1M
+pool 1.7M
 predef 672K
 preprocessor 3.4M
-property_tree 13M
+property_tree 14M
 proto 21M
 ptr_container 12M
-qvm 3.3M
-ratio 7.7M
-rational 1.4M
-scope_exit 9.2M
+qvm 3.9M
+ratio 7.8M
+rational 1.5M
+safe_numerics 2.7M
+scope_exit 9.0M
 signals2 12M
 smart_ptr 2.6M
-sort 4.3M
-static_assert 1.8M
-throw_exception 636K
-tokenizer 7.9M
+sort 4.4M
+static_assert 620K
+throw_exception 640K
+tokenizer 8.0M
 tti 11M
-tuple 880K
-type_index 3.1M
-typeof 7.3M
-type_traits 1.9M
-units 17M
-unordered 4.1M
-utility 3.3M
+tuple 924K
+type_index 3.2M
+typeof 7.2M
+type_traits 2.0M
+units 18M
+unordered 4.2M
+utility 3.4M
 uuid 12M
-variant 9.6M
+variant 9.7M
 vmd 2.9M
 winapi 1.3M
 xpressive 26M
-yap 2.9M
+yap 3.0M
 ```
 
 </p>
@@ -121,7 +121,7 @@ Run bcp to get final distributive.
 ```
 
 ## Result
-For those who are lazy here is the resulting bcp command line:
+For those who are lazy here is the resulting bcp command line for the latest version (1.69):
 
 ```
 bcp \
@@ -152,20 +152,15 @@ function \
 functional \
 function_types \
 fusion \
-geometry \
-gil \
 hana \
 heap \
 hof \
-icl \
 integer \
-interprocess \
 intrusive \
 io \
 iterator \
 lambda \
 lexical_cast \
-locale \
 local_function \
 logic \
 metaparse \
@@ -176,9 +171,11 @@ msm \
 multi_array \
 multi_index \
 optional \
+parameter_python \
 phoenix \
 poly_collection \
 polygon \
+pool \
 predef \
 preprocessor \
 property_tree \
@@ -187,6 +184,7 @@ ptr_container \
 qvm \
 ratio \
 rational \
+safe_numerics \
 scope_exit \
 signals2 \
 smart_ptr \
@@ -207,12 +205,21 @@ variant \
 vmd \
 winapi \
 xpressive \
+yap \
 /tmp/boost
 ```
 
+## Perl Package
+There is a Perl package which contains some of the listed libraries:
+* https://metacpan.org/pod/CPP::Boost::Mini
+
+## Archive
+* [Boost 1.68.0](archive/1_68_0/README.md)
+* [Boost 1.69.0](archive/1_69_0/README.md)
+
 ## References
-* https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html
-* https://www.boost.org/doc/libs/1_68_0/more/getting_started/unix-variants.html#header-only-libraries
+* https://www.boost.org/doc/libs/1_69_0/tools/bcp/doc/html/index.html
+* https://www.boost.org/doc/libs/1_69_0/more/getting_started/unix-variants.html#header-only-libraries
 * https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/
 * https://www.boost.org/doc/libs
 * https://unix.stackexchange.com/questions/158234/tool-in-unix-to-subtract-text-files
